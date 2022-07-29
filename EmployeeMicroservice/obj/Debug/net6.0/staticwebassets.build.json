@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "AAwSQ5Tra/hYLP1tWNGtCdBogoHwsYRqQVllXvBadXQ=",
+  "Source": "EmployeeMicroservice",
+  "BasePath": "_content/EmployeeMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
