@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mCn19vHjlzdj78pRO54FHxPeOn4HoeQXPv9WVufOI16ofxNRaWqwuDSkmPs0R3bhxIBykA76lQTpU1xM9OprJw==",
+  "dgSpecHash": "4Ornc8hQRtWWpwB34h3Y3jC9EVMJNd9caPzym1Ca/oTj6YSjUgUCjB6kiSKAqSbKXRtcviewnbimTyooSOjFeg==",
   "success": true,
   "projectFilePath": "C:\\Users\\ithih\\source\\repos\\EMSystemMicroservices\\EmployeeMicroservice\\EmployeeMicroservice.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,7 @@
     "C:\\Users\\ithih\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\ithih\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ithih\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\ithih\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.15.1\\microsoft.visualstudio.azure.containers.tools.targets.1.15.1.nupkg.sha512",
     "C:\\Users\\ithih\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ithih\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ithih\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
+using System.Transactions;
+using EmployeeMicroservice.Repository;
+
 
 
 //using Newtonsoft.Json;
@@ -20,65 +23,54 @@ namespace EmployeeMicroservice.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        Database.DatabaseContext db=default!;
-        public EmployeeController()
-        {
-            db = new DatabaseContext();
-
-        }
-
-        
-        // GET: api/<EmployeeController>
-        [HttpGet]
-        public IEnumerable<Employee> Get()
-        {
-          return db.Employee.ToList();  //To fetch the EmployeeList
-        }
-
-        // GET api/<EmployeeController>/5
-        [HttpGet("{id}")]  //fr values
-        public Employee Get(int id)
-        {
-            return db.Employee.Find(id);  //To fetch the info based on the id
-        }
-
-
-       
       
-
-        // POST api/<EmployeeController>
-        [HttpPost]
-        public IActionResult Post([FromBody] Employee model) //fr values
+        private readonly IEmployeeRepository _employeeRepository = default!;
+     
+       
+        public EmployeeController(IEmployeeRepository employeeRepository)
         {
-            try
-            {
-                db.Employee.Add(model);
-                db.SaveChanges();
-                return StatusCode(StatusCodes.Status201Created, model);       
-            }
-            catch(Exception ex)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,ex);
-            }
+            _employeeRepository = employeeRepository;
+        }
 
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var EmployeeList = _employeeRepository.GetEmployees();
+            return Ok(EmployeeList);
+        }
+
+        [HttpGet("{id}", Name = "Get")]
+        public IActionResult Get(int id)
+        {
+
+            var Employee = _employeeRepository.GetEmployeebyId(id);
+             return Ok(Employee);
+            
+            
+        }
+
+        [HttpPost]
+        public IActionResult Post([FromBody] Employee employee)
+        {
+            using (var scope = new TransactionScope())
+            {
+                _employeeRepository.AddEmployee(employee);
+                scope.Complete();
+                return CreatedAtAction(nameof(Get), new { id = employee.EmployeeId }, employee);
+            }
         }
 
        
 
-        // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
-        // public void Delete(int id)
-        public async Task<ActionResult<List<Employee>>> DeleteEmployee(int id)
+        public IActionResult Delete(int id)
         {
-            var dbEmployee = await db.Employee.FindAsync(id);
-            if (dbEmployee == null) { return BadRequest("Employee Not Found"); }
-
-            db.Employee.Remove(dbEmployee);
-            await db.SaveChangesAsync();
-
-            return Ok(await db.Employee.ToListAsync());
-
+            _employeeRepository.DeleteEmployee(id);
+            return new OkResult();
         }
+        
+        
     }
     
 }
