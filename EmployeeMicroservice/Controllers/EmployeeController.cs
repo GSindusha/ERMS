@@ -45,12 +45,15 @@ namespace EmployeeMicroservice.Controllers
         {
 
             var Employee = _employeeRepository.GetEmployeebyId(id);
-             return Ok(Employee);
-            
-            
+            if(Employee!=null)
+                return Ok(Employee);
+            else
+                return NotFound("Requested Employee Id does not exist");
+
+
         }
 
-        [HttpPost]
+        [HttpPost] //New Registration
         public IActionResult Post([FromBody] Employee employee)
         {
             using (var scope = new TransactionScope())
