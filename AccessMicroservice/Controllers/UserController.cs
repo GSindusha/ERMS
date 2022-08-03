@@ -49,16 +49,15 @@ namespace AccessMicroservice.Controllers
         }
 
 
-        [HttpGet("{id}"), Authorize]
-        public async Task<ActionResult<Users>> getCurrentUser(string id)
-        {
+        //[HttpGet("{id}"), Authorize]
+     //   public async Task<ActionResult<Users>> getCurrentUser(string id)
+    //    {
 
-            List<Users> user = await _db.User.Where(o => o.EmailId == id).ToListAsync();
+       //     List<Users> user = await _db.User.Where(o => o.EmailId == id).ToListAsync();
 
-            var userData = await _userRepo.GetUserByIdAsync(id);
-            return Ok(user[0]);
-
-        }
+        //    var userData = await _userRepo.GetUserByIdAsync(id);
+         //   return Ok(user[0]);
+        //}
 
         [HttpPost("login")]
         public async Task<ActionResult<string>> Login(Userlogin request)
