@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "n5g2DsqlW5w3aoLWSpO+/V4X5+RzFmWbNFzSA/8kkvQ=",
+  "Source": "AccessMicroservice",
+  "BasePath": "_content/AccessMicroservice",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
